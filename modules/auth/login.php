@@ -3,9 +3,9 @@
 $info = [
     'title' => 'Đăng nhập'
 ];
-layouts('header', $info);
+layouts('header-login', $info);
 
-
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 //check login
 if (isLogin()) {
     header('Location: ?module=home&action=dashboard');
@@ -25,7 +25,7 @@ if (isPost()) {
                 $dataInsert = [
                     'user_id' => $userID,
                     'token' => $token,
-                    'create_at' => date('d-m-y H:i:s')
+                    'create_at' => date('y-m-d H:i:s')
                 ];
                 $insertStatus = insert('tokenlogin', $dataInsert);
                 if ($insertStatus) {
@@ -43,25 +43,22 @@ $msg = getFlashData('msg');
 $msg_type = getFlashData('msg_type');
 
 ?>
-<div class="row login">
-    <div class="col-4 m-auto">
-        <form action="" method="post">
-            <h2 class="text-center text-uppercase">đăng nhập quản lý user</h2>
-            <?php getSmg($msg, $msg_type); ?>
-            <label for="email" class="mt-1">Địa chỉ email</label>
-            <input type="email" class="form-control" placeholder="Abc@gmail.com" id="email" name="email">
-            <label for="password" class="mt-1">Mật khẩu</label>
-            <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password">
-            <button class="btn btn-primary mt-3 w-100">Đăng nhập</button>
-            <hr>
-            <div class="d-flex flex-column align-items-center">
-                <a href="?module=auth&action=forgot" class="link">Quên mật khẩu</a>
-                <a href="?module=auth&action=register" class="link mt-1">Đăng ký tài khoản</a>
-            </div>
-        </form>
-    </div>
-</div>
 
+
+<div class="col-3 m-auto my-login fixed-top mt-5">
+    <form action="" method="post">
+        <h2 class="text-center text-uppercase">đăng nhập</h2>
+        <label for="email">Địa chỉ email</label>
+        <input type="email" class="form-control" placeholder="Abc@gmail.com" id="email" name="email">
+        <label for="password" class="mt-1">Mật khẩu</label>
+        <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password">
+        <hr>
+        <button class="btn  mt-3 w-100 mb-3 btn-dark">Đăng nhập</button>
+        <?php getSmg($msg, $msg_type); ?>
+    </form>
+</div>
+<div class="bg-login">
+</div>
 
 
 <?php

@@ -1,10 +1,102 @@
 
 .login{
     margin-top: 100px;
+
+    /* position: absolute; */
+}
+.my-login
+{
+    background-color: rgb(251, 251, 251);
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 100px;
+}
+.bg-login{
+     width: 100%;
+    height: 100vh;
+    background-image: url("../img/1.jpg");
+    background-size: cover;
 }
 
+.bg-login::before{
+    background-color: black;
+    content: "";
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    right:0;
+    bottom: 0;
+    left: 0;
+}
 .sidebar{
     height: 100vh;
     width: 15%;
-    /* background-color: black; */
+}
+.my-sidebar{
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.my-logo{
+    color: rgb(244, 52, 18);
+}
+.my-content{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/1.jpg");
+    background-size: cover;
+}
+.my-content::before{
+    background-color: black;
+    content: "";
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    right:0;
+    bottom: 0;
+    left: 0;
+}
+.nav-link {
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+}
+.nav-link::after{
+    background-color: rgb(239, 100, 75);
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 2px;
+    left: 17px;
+    bottom: 0;
+    border-radius: 2px;
+}
+.nav-item:first-child{
+    margin-top: 20px;
+}
+.fs-4{
+    font-weight: 600;
+    margin-left: 10px;
+}
+.my-btn{
+    background-color: rgb(8, 49, 198);
+    color:white;
+    margin: auto;   
+}
+.fa-house{
+    margin-right: 15px;
+}
+.fa-bell{
+    margin-right: 19px;
+}
+.fa-user-tie{
+    margin-right: 19px;
+}
+.fa-hand{
+    margin-right: 18px;
+}
+.fa-circle-user{
+    margin-right: 17px;
 }

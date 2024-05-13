@@ -1,5 +1,6 @@
 <!-- Hàm liên quan đến session hay cookies -->
 <?php
+
 function setSession($key, $value)
 {
     return $_SESSION[$key] = $value;

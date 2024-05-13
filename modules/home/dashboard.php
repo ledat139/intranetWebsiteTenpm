@@ -2,15 +2,20 @@
 $info = [
     'title' => 'DashBoard'
 ];
-layouts('header', $info);
-//check login
-
 if (isLogin() == false) {
     header('Location: ?module=auth&action=login');
 }
+layouts('header', $info);
+//check login
+
+
 ?>
 
-<body>
-    <h1>dashboard</h1>
-    <?php
-    layouts('footer', $info);
+
+<div class="my-content">
+
+</div>
+
+</body>
+<?php
+layouts('footer', $info);
