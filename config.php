@@ -6,6 +6,6 @@ const _CODE = true;
 
 //Thông tin kết nối 
 const _HOST = 'localhost';
-const _DB = 'tdat';
+const _DB = 'intranetwebsite';
 const _USER = 'root';
 const _PASS = '';

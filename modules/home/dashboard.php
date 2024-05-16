@@ -8,12 +8,14 @@ if (isLogin() == false) {
 layouts('header', $info);
 //check login
 
-
+$listEmp = getRow('select * from nhanvien');
 ?>
 
 
 <div class="my-content">
+    <div class="my-body fixed-top container">
 
+    </div>
 </div>
 
 </body>

@@ -11,21 +11,20 @@ if (isLogin()) {
     header('Location: ?module=home&action=dashboard');
 }
 
-
 if (isPost()) {
     if ((!empty($_POST['email'])) && (!empty($_POST['password']))) {
-        $param[':email'] = $_POST['email'];
-        $userRequest = oneRow('select id, password from users where email = :email', $param);
+        $param[':EMAIL'] = $_POST['email'];
+        $userRequest = oneRow('select MANV, PASSWORD from nhanvien where EMAIL = :EMAIL', $param);
         if (!empty($userRequest)) {
-            if ($userRequest['password'] == $_POST['password']) {
+            if ($userRequest['PASSWORD'] == $_POST['password']) {
 
-                $userID = $userRequest['id'];
+                $userID = $userRequest['MANV'];
                 $token = sha1(uniqid() . time());
 
                 $dataInsert = [
-                    'user_id' => $userID,
-                    'token' => $token,
-                    'create_at' => date('y-m-d H:i:s')
+                    'MANV' => $userID,
+                    'TOKEN' => $token,
+                    'CREATE_AT' => date('y-m-d H:i:s')
                 ];
                 $insertStatus = insert('tokenlogin', $dataInsert);
                 if ($insertStatus) {
@@ -53,7 +52,7 @@ $msg_type = getFlashData('msg_type');
         <label for="password" class="mt-1">Mật khẩu</label>
         <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password">
         <hr>
-        <button class="btn  mt-3 w-100 mb-3 btn-dark">Đăng nhập</button>
+        <button class="btn  mt-3 w-100 mb-3 btn-dark">Đăng nhập <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i></button>
         <?php getSmg($msg, $msg_type); ?>
     </form>
 </div>

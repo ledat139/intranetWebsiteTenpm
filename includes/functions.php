@@ -6,10 +6,6 @@ function layouts($layout, $data = [])
 }
 
 
-
-
-
-
 function isGet()
 {
     if ($_SERVER['REQUEST_METHOD'] == 'GET')
@@ -91,9 +87,9 @@ function isLogin()
     $checkLogin = false;
     if (!empty(getSession('tokenLogin'))) {
         $param = [
-            ':token' => getSession('tokenLogin')
+            ':TOKEN' => getSession('tokenLogin')
         ];
-        $tokenQuery = oneRow('SELECT user_id FROM tokenlogin WHERE token = :token', $param);
+        $tokenQuery = oneRow('SELECT MANV FROM tokenlogin WHERE TOKEN = :TOKEN', $param);
         if (!empty($tokenQuery)) {
             $checkLogin = true;
         } else {
