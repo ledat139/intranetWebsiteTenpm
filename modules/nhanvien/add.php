@@ -3,6 +3,10 @@
 $info = [
     'title' => 'Thêm nhân viên'
 ];
+if (isLogin() == false) {
+    header('Location: ?module=auth&action=login');
+}
+
 layouts('header', $info);
 
 
@@ -72,7 +76,7 @@ $smg_data = getFlashData('smg_type');
 ?>
 
 <div class="my-content">
-    <div class="my-add-form fixed-top">
+    <div class="my-add-form fixed-top ">
         <form action="" method="post" class="mt-5 col-11 m-auto">
             <h2 class="text-uppercase">Thông tin nhân viên</h2>
             <div class="row mt-4">
@@ -89,6 +93,8 @@ $smg_data = getFlashData('smg_type');
                     </select>
                     <label for="address" class="mt-3 h6">Địa chỉ</label>
                     <input type="text" class="form-control" placeholder="Thành phố hoặc tỉnh" id="address" name="address">
+                    <!-- <label for="image" class="mt-3 h6">Chọn ảnh:</label>
+                    <input type="file" class="form-control-file" id="image" name="image" required> -->
                 </div>
 
                 <div class="col">
@@ -104,7 +110,6 @@ $smg_data = getFlashData('smg_type');
                     <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="passWord">
 
                 </div>
-
             </div>
             <div class="mt-4 mb-3">
                 <button class="btn text-white" type="submit" style="background-color: rgb(8, 49, 198);">

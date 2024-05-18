@@ -14,42 +14,42 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body class="my-body">
-    <div class="d-flex flex-column flex-shrink-0 p-3 fixed-top my-sidebar" style="width: 280px; height:96vh ">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto my-logo text-decoration-none">
-            <i class="fa-solid fa-building" style="color: #2d4d86;"></i>
-            <span class="fs-4">TENPM COMPANY</span>
+<body>
+    <div class="d-flex flex-column flex-shrink-0 p-3 fixed-top my-sidebar" style="width: 240px; height:96vh ">
+        <div class="d-flex gap-3 align-items-center">
+            <img src="templates/img/logo.png" alt="" class="my-logo">
+            <span class="fs-3" style="font-weight: 600; color:mediumblue;">TENPM</span>
+        </div>
 
-        </a>
         <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
+        <ul class=" nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="?module=home&action=dashboard" class="nav-link text-dark">
-                    <i class="fa-solid fa-house" style="color: #000000;"></i>
+                <a href="?module=home&action=dashboard" class=" nav-link ">
+                    <i class="fa-solid fa-house" style="color: #5D5D5D;"></i>
                     Trang chủ
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-dark">
-                    <i class="fa-solid fa-bell" style="color: #000000;"></i>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-bell" style="color: #5D5D5D;"></i>
                     Thông báo
                 </a>
             </li>
             <li>
-                <a href="?module=nhanvien&action=list" class="nav-link text-dark">
-                    <i class="fa-solid fa-user-tie" style="color: #000000;"></i>
+                <a href="?module=nhanvien&action=list" class="nav-link">
+                    <i class="fa-solid fa-user-tie" style="color: #5D5D5D;"></i>
                     Nhân viên
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-dark">
-                    <i class="fa-solid fa-hand" style="color: #000000;"></i>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-hand" style="color: #5D5D5D;"></i>
                     Yêu cầu
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-dark">
-                    <i class="fa-solid fa-building" style="color: #000000;"></i>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-building" style="color: #5d5d5d;"></i>
                     Phòng họp
                 </a>
             </li>

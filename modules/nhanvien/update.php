@@ -52,7 +52,7 @@ if (isPost()) {
     if ($isError) {
         setFlashData('smg', 'Vui lòng nhập đầy đủ thông tin !!');
         setFlashData('smg_type', 'danger');
-    } else {
+    } else {    
         if ($_POST['sex'] == 'Nam') $bool = 1;
         else $bool = 0;
         $data = [

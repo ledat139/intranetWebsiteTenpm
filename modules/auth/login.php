@@ -7,9 +7,9 @@ layouts('header-login', $info);
 
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 //check login
-if (isLogin()) {
-    header('Location: ?module=home&action=dashboard');
-}
+// if (isLogin()) {
+//     header('Location: ?module=home&action=dashboard');
+// }
 
 if (isPost()) {
     if ((!empty($_POST['email'])) && (!empty($_POST['password']))) {
@@ -29,7 +29,17 @@ if (isPost()) {
                 $insertStatus = insert('tokenlogin', $dataInsert);
                 if ($insertStatus) {
                     setSession('tokenLogin', $token);
-                    header('Location: ?module=home&action=dashboard');
+                    $param = [
+                        ':TOKEN' => getSession('tokenLogin')
+                    ];
+                    $tokenQuery = oneRow('SELECT MANV FROM tokenlogin WHERE TOKEN = :TOKEN', $param);
+                    $param2 = [
+                        ':MANV' => $tokenQuery['MANV']
+                    ];
+                    $emailQuery = oneRow('SELECT EMAIL,PHONGBAN FROM NHANVIEN WHERE MANV = :MANV', $param2);
+                    if ($emailQuery['EMAIL'] == 'admin@123') header('Location: ?module=home&action=dashboard');
+                    else if ($emailQuery['PHONGBAN'] == 'Nhân sự') header('Location: ?module=home&action=nhanSuDashBoard');
+                    else header('Location: ?module=home&action=nomalDB');
                 }
             }
         }
