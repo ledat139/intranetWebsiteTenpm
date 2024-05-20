@@ -8,8 +8,6 @@ if (isLogin() == false) {
 }
 
 layouts('header', $info);
-
-
 if (isPost()) {
     $isError = false;
     if (empty($_POST['fullName'])) {
@@ -76,13 +74,11 @@ if (isPost()) {
         }
     }
 }
-
 $smg = getFlashData('smg');
 $smg_data = getFlashData('smg_type');
 
 
 ?>
-
 <div class="my-content">
     <div class="my-add-form fixed-top ">
         <form action="" method="post" class="mt-3 col-11 m-auto" enctype="multipart/form-data">
@@ -137,7 +133,5 @@ $smg_data = getFlashData('smg_type');
         </form>
     </div>
 </div>
-
-
 <?php
 layouts('footer', $info);

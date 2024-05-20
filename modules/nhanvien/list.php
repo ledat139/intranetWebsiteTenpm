@@ -12,8 +12,6 @@ layouts('header', $info);
 
 $listEmp = getRow('select * from nhanvien');
 ?>
-
-
 <div class="my-content">
     <div class="my-body fixed-top p-3">
         <div class="d-flex justify-content-between align-items-center mt-1">

@@ -4,7 +4,6 @@ $info = [
     'title' => 'Đăng nhập'
 ];
 layouts('header-login', $info);
-
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 //check login
 // if (isLogin()) {
@@ -17,10 +16,8 @@ if (isPost()) {
         $userRequest = oneRow('select MANV, PASSWORD from nhanvien where EMAIL = :EMAIL', $param);
         if (!empty($userRequest)) {
             if ($userRequest['PASSWORD'] == $_POST['password']) {
-
                 $userID = $userRequest['MANV'];
                 $token = sha1(uniqid() . time());
-
                 $dataInsert = [
                     'MANV' => $userID,
                     'TOKEN' => $token,
@@ -50,10 +47,7 @@ if (isPost()) {
 }
 $msg = getFlashData('msg');
 $msg_type = getFlashData('msg_type');
-
 ?>
-
-
 <div class="col-3 m-auto my-login fixed-top mt-5">
     <form action="" method="post">
         <h2 class="text-center text-uppercase">đăng nhập</h2>
@@ -68,8 +62,5 @@ $msg_type = getFlashData('msg_type');
 </div>
 <div class="bg-login">
 </div>
-
-
 <?php
-
 layouts('footer', $info);
