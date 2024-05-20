@@ -4,8 +4,6 @@ $info = [
     'title' => 'Cập nhật thông tin nhân viên'
 ];
 layouts('header', $info);
-
-
 $param[':MANV'] = $_GET['id'];
 $oldData = oneRow('select * from nhanvien where MANV = :MANV', $param);
 if (empty($oldData)) {
@@ -84,11 +82,9 @@ if (isPost()) {
         }
     }
 }
-
 $smg = getFlashData('smg');
 $smg_data = getFlashData('smg_type');
 ?>
-
 <div class="my-content">
     <div class="my-add-form fixed-top">
         <form action="" method="post" class="mt-5 col-11 m-auto">
@@ -141,7 +137,5 @@ $smg_data = getFlashData('smg_type');
         </form>
     </div>
 </div>
-
-
 <?php
 layouts('footer', $info);

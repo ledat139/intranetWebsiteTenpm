@@ -4,19 +4,14 @@ $info = [
     'title' => 'Đăng ký'
 ];
 layouts('header', $info);
-
- 
 if (isPost()) {
     $error = [];
-
     //fullName: bắt buộc phải nhập, trên 5 kí tự
     if (empty($_POST['fullName'])) {
         $error['fullName']['required'] = 'Bắt buộc phải nhập họ tên';
     } else if (strlen($_POST['fullName']) < 5) {
         $error['fullName']['min'] = 'Họ tên phải trên 5 kí tự';
     }
-
-
     // Email: bắt buộc nhập, đúng định dạng, kiểm tra email đã tồn tại
     if (empty($_POST['email']))
         $error['email']['required'] = 'Bắt buộc phải nhập email';
@@ -26,23 +21,17 @@ if (isPost()) {
             if (in_array($_POST['email'], $value)) $error['email']['unique'] = 'Email đã tồn tại';
         }
     }
-
-
     //validate sdt
     if (empty($_POST['phoneNumber']))
         $error['phoneNumber']['required'] = 'Bắt buộc phải nhập email';
     else
         if (!isPhoneNumber($_POST['phoneNumber'])) $error['phoneNumber']['valid'] = 'Số điện thoại không đúng định dạng';
-
-
     //validate password: bắt buộc phải nhập, lớn hơn 8 ký tự
     if (empty($_POST['passWord']))
         $error['passWord']['required'] = 'Bắt buộc phải nhập mật khẩu';
     else if (strlen($_POST['passWord']) < 8) {
         $error['passWord']['min'] = 'Mật khẩu phải từ 8 kí tự trở lên';
     }
-
-
     //validate confirmPassWord: bắt buộc phải nhập, giống passWord
     if (empty($_POST['confirmPassWord']))
         $error['confirmPassWord']['required'] = 'Bắt buộc phải nhập mật khẩu';
@@ -57,12 +46,9 @@ if (isPost()) {
         setFlashData('smg_type', 'danger');
     }
 }
-
 $smg = getFlashData('smg');
 $smg_data = getFlashData('smg_type');
 ?>
-
-
 <div class="row login">
     <div class="col-4 m-auto">
         <form action="" method="post">
@@ -86,8 +72,5 @@ $smg_data = getFlashData('smg_type');
         </form>
     </div>
 </div>
-
-
-
 <?php
 layouts('footer', $info);

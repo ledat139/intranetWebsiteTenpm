@@ -10,8 +10,6 @@ layouts('header', $info);
 
 $listEmp = getRow('select * from nhanvien');
 ?>
-
-
 <div class="my-content">
     <div class="my-body fixed-top container ">
         <a href="?module=nhanvien&action=add" class="btn btn-success mt-5">
