@@ -22,7 +22,7 @@
 
 ## 📲 Công nghệ sử dụng
 * HTML, CSS, Javascript
-* PHP, Bootstrap 5
+* PHP, Bootstrap
 * MySQL
 
 ## 🧛‍♂️ Tác giả
