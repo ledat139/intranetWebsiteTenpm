@@ -27,7 +27,8 @@ $listEmp = getRow('select * from nhanvien');
             <table class="table">
                 <thead>
                     <tr class="table-dark my-header-table">
-                        <th>Mã nhân viên</th>
+                        <th>Mã NV</th>
+                        <th></th>
                         <th>Họ tên</th>
                         <th>Địa chỉ</th>
                         <th>Giới tính</th>
@@ -45,8 +46,11 @@ $listEmp = getRow('select * from nhanvien');
                     if (!empty($listEmp)) :
                         foreach ($listEmp as $emp) :
                     ?>
-                            <tr>
+                            <tr class="my-tr">
                                 <td><?php echo $emp['MANV'] ?></td>
+                                <td>
+                                    <div class="img-table"><img src="<?php echo $emp['FILEPATH'] ?>" alt="" class="profile-table"></div>
+                                </td>
                                 <td><?php echo $emp['HOTEN'] ?></td>
                                 <td><?php echo $emp['DIACHI'] ?></td>
                                 <td><?php if ($emp['GIOITINH'] == 1) echo 'Nam';

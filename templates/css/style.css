@@ -110,6 +110,24 @@
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     
 }
+.my-tb-body{
+    width: 52vw;
+    height: 87vh;
+    background-color: white;
+    margin-left: 295px;
+    margin-top: 15px;
+    border-radius: 20px; 
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+.my-addtb-form{
+    width: 25vw;
+    height: 87vh;
+    background-color: white;
+    margin-left: 1125px;
+    margin-top: 15px;
+    border-radius: 20px; 
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
 .my-button-add{
     width: 78vw;
     height: 6vh;
@@ -123,10 +141,20 @@
     width: 50vw;
     background-color: white;
     margin-left: 500px;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 25px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
+.my-footer-tb{
+    width: 79vw;
+    height: 6vh;
+    background-color: rgb(255, 255, 255);
+    margin-left: 295px;
+    margin-top: 640px;
+    border-radius: 20px; 
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
 .fa-right-from-bracket{
     margin-left: 16px;
 }
@@ -179,4 +207,34 @@ input[type="date"] {
     width: 100px;
     height: 35px;
     background-color:#67c790;
+}
+.profile{
+    width: 97px;
+    height: 97px;
+    border-radius: 50%;
+    object-fit: cover;
+    
+}
+.img-profile{
+    width: 97px;
+    height: 97px;
+    margin: auto;
+}
+.img-table{
+    width: 50px;
+    height: 50px;
+}
+.profile-table{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.table td{
+  vertical-align: middle;
+}
+.my-tb-content{
+    max-height: 470px;
+    overflow-y: auto; 
+    overflow-x: hidden;
 }

@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link">
+                <a href="?module=thongbao&action=list" class="nav-link">
                     <i class="fa-solid fa-bell" style="color: #5D5D5D;"></i>
                     Thông báo
                 </a>
