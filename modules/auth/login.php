@@ -26,6 +26,7 @@ if (isPost()) {
                 $insertStatus = insert('tokenlogin', $dataInsert);
                 if ($insertStatus) {
                     setSession('tokenLogin', $token);
+                    setSession('id', $userID);
                     $param = [
                         ':TOKEN' => getSession('tokenLogin')
                     ];

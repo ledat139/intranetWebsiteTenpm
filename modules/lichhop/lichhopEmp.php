@@ -8,7 +8,7 @@ if (isLogin() == false) {
 }
 
 
-layouts('header', $info);
+layouts('headerEmp', $info);
 
 if (isPost()) {
     $isError = false;
@@ -43,7 +43,7 @@ if (isPost()) {
             ];
             $insertStatus = insert('lichhop', $data);
             if ($insertStatus) {
-                setFlashData('smg', 'Thêm thành công !!');
+                setFlashData('smg', 'Đăng ký thành công !!');
                 setFlashData('smg_type', 'success');
             } else {
                 setFlashData('smg', 'Hệ thống lỗi !!');
@@ -100,7 +100,7 @@ $listPH = getRow('select * from lichhop order by CREATE_AT desc');
                         <div class="col-4"><?php echo getSmg($smg, $smg_data); ?></div>
                     </div>
                     <button type="submit" class="my-btn btn btn-warning w-25 m-auto mt-4 col-2">Đăng ký</button>
-                    <a class="btn m-auto w-25 btn-dark col-2 mt-4" href="?module=lichhop&action=lichhop">
+                    <a class="btn m-auto w-25 btn-dark col-2 mt-4" href="?module=lichhop&action=lichhopEmp">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         Hủy
                     </a>
@@ -115,7 +115,6 @@ $listPH = getRow('select * from lichhop order by CREATE_AT desc');
                             <th>Buổi họp</th>
                             <th>Phòng họp</th>
                             <th>Phòng ban đăng ký</th>
-                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -128,7 +127,7 @@ $listPH = getRow('select * from lichhop order by CREATE_AT desc');
                                     <td><?php echo $PH['BUOIHOP'] ?></td>
                                     <td><?php echo $PH['PHONGHOP'] ?></td>
                                     <td><?php echo $PH['PHONGBAN'] ?></td>
-                                    <td><a href="?module=lichhop&action=delete&id=<?php echo $PH['MALICH']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><i class="fa-solid fa-trash-can" style="color: #000000;"></i></a></td>
+
                                 </tr>
                         <?php
                             endforeach;

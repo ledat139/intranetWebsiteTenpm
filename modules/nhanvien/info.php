@@ -3,12 +3,10 @@
 $info = [
     'title' => 'Cập nhật thông tin nhân viên'
 ];
-layouts('header', $info);
-$param[':MANV'] = $_GET['id'];
+layouts('headerEmp', $info);
+$thisID = getSession('id');
+$param[':MANV'] = $thisID;
 $oldData = oneRow('select * from nhanvien where MANV = :MANV', $param);
-if (empty($oldData)) {
-    header('Location: ?module=nhanvien&action=list');
-}
 if (isPost()) {
     $isError = false;
     if (empty($_POST['fullName'])) {
@@ -68,7 +66,7 @@ if (isPost()) {
             'SDT' => $_POST['phoneNumber'],
             'FILEPATH' => $target_file
         ];
-        $id = $_GET['id'];
+        $id = $thisID;
         $updateStatus = update('NHANVIEN', $data, "MANV = '$id'");
         if ($updateStatus) {
             $oldData['HOTEN'] = $_POST['fullName'];
@@ -92,17 +90,18 @@ $smg = getFlashData('smg');
 $smg_data = getFlashData('smg_type');
 ?>
 <div class="my-content">
-    <div class="my-add-form fixed-top">
-        <form action="" method="post" class="mt-3 col-11 m-auto" enctype="multipart/form-data">
-            <h2 class="text-uppercase">Sửa thông tin nhân viên</h2>
+    <div class="my-add-form fixed-top p-3">
+        <form action="" method="post" class=" col-11 m-auto" enctype="multipart/form-data">
+            <h2 class="text-uppercase">Thông tin nhân viên</h2>
+            <p class="text-danger">*Được phép cập nhật ảnh, số điện thoại, địa chỉ, ngày sinh</p>
             <div class="row mt-4">
                 <div class="col">
                     <label for="fullName" class="mt-4 h6">Họ tên</label>
-                    <input type="fullName" class="form-control" placeholder="Họ tên" id="fullName" name="fullName" value="<?php echo $oldData['HOTEN']; ?>">
+                    <input type="fullName" class="form-control ban" placeholder="Họ tên" id="fullName" name="fullName" value="<?php echo $oldData['HOTEN']; ?>">
                     <label for="phoneNumber" class="mt-3 h6">Số điện thoại</label>
                     <input type="text" class="form-control" placeholder="Số điện thoại" id="phoneNumber" name="phoneNumber" value="<?php echo $oldData['SDT']; ?>">
                     <label for="sex" class="mt-3 h6">Giới tính</label>
-                    <select id="sex" name="sex" class="form-control">
+                    <select id="sex" name="sex" class="form-control ban">
                         <?php if ($oldData['GIOITINH'] == 1)
                             echo '<option value="Nam">Nam</option>
                                 <option value="Nữ">Nữ</option>';
@@ -124,11 +123,11 @@ $smg_data = getFlashData('smg_type');
                     <label for="image" class="mt-3 h6">Chọn ảnh:</label>
                     <input type="file" class="form-control-file" id="image" name="image-upload" required>
                     <label for="dept" class="mt-3 h6">Phòng ban</label>
-                    <input type="text" class="form-control" placeholder="Tên phòng ban" id="dept" name="dept" value="<?php echo $oldData['PHONGBAN']; ?>">
+                    <input type="text" class="form-control ban" placeholder="Tên phòng ban" id="dept" name="dept" value="<?php echo $oldData['PHONGBAN']; ?>">
                     <label for="email" class="mt-3 h6">Địa chỉ email</label>
-                    <input type="email" class="form-control" placeholder="Abc@gmail.com" id="email" name="email" value="<?php echo $oldData['EMAIL']; ?>">
+                    <input type="email" class="form-control ban" placeholder="Abc@gmail.com" id="email" name="email" value="<?php echo $oldData['EMAIL']; ?>">
                     <label for="password" class="mt-3 h6">Mật khẩu</label>
-                    <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="passWord" value="<?php echo $oldData['PASSWORD']; ?>">
+                    <input type="password" class="form-control ban" id="password" placeholder="Mật khẩu" name="passWord" value="<?php echo $oldData['PASSWORD']; ?>">
 
                 </div>
 
@@ -138,7 +137,7 @@ $smg_data = getFlashData('smg_type');
                     <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
                     Cập nhật thông tin
                 </button>
-                <a class="btn btn-dark" href="?module=nhanvien&action=list">
+                <a class="btn btn-dark" href="?module=nhanvien&action=info">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     Thoát
                 </a>

@@ -8,7 +8,7 @@ if (isLogin() == false) {
 }
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
-layouts('header', $info);
+layouts('headerEmp', $info);
 
 if (isPost()) {
     $isError = false;
@@ -55,7 +55,7 @@ $listTB = getRow('select * from thongbao order by CREATE_AT desc');
 
 
 <div class="my-content">
-    <div class="my-tb-body1 fixed-top p-3">
+    <div class="my-tb-body1nv fixed-top p-3">
         <div class=" mt-1">
             <h3 class="mt-1">Thông báo</h3>
         </div>
@@ -84,7 +84,7 @@ $listTB = getRow('select * from thongbao order by CREATE_AT desc');
 
     </div>
 
-    <div class="my-tb-body2 fixed-top p-3">
+    <div class="my-tb-body2nv fixed-top p-3">
         <div class="overflow-auto my-tb-content">
             <div class="d-flex flex-wrap gap-2">
                 <?php foreach ($listTB as $tb) : ?>
@@ -93,8 +93,6 @@ $listTB = getRow('select * from thongbao order by CREATE_AT desc');
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo date("d-m-Y H:i", strtotime($tb['CREATE_AT'])) ?></h6>
                             <p class="card-text"> <?php echo $tb['NOIDUNGTB'] ?></p>
-                            <a href="?module=thongbao&action=update&id=<?php echo $tb['MATB']; ?>" class="btn btn-dark"><i class="fa-solid fa-pen-to-square" style="color: #FFF;"></i></a>
-                            <a href="?module=thongbao&action=delete&id=<?php echo $tb['MATB']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><i class="fa-solid fa-trash-can" style="color: #000000;"></i></a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -103,28 +101,7 @@ $listTB = getRow('select * from thongbao order by CREATE_AT desc');
 
     </div>
 
-    <div class="my-addtb-form fixed-top">
-        <form action="" method="post" class="mt-3 col-11 mt-4 m-auto">
-            <h4 class="text-uppercase">Thông tin thông báo</h4>
-            <div class="col">
-                <label for="title" class="mt-4 h6">Chủ đề thông báo:</label>
-                <input type="title" class="form-control" placeholder="Chủ đề thông báo" id="title" name="title">
-                <label for="content" class="mt-4 h6">Nội dung:</label>
-                <textarea class="form-control" id="content" name="content" rows="3"></textarea>
-            </div>
-            <div class="mt-4 mb-3">
-                <button class="btn text-white" type="submit" style="background-color: rgb(8, 49, 198);">
-                    <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
-                    Thêm thông báo
-                </button>
-                <a class="btn btn-dark" href="?module=thongbao&action=list">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    Hủy
-                </a>
-            </div>
-            <?php echo getSmg($smg, $smg_data); ?>
-        </form>
-    </div>
+
 
     <div class="fixed-top my-footer-tb d-flex justify-content-center align-items-center">
         <i class="fa-regular fa-copyright" style="color: #000;"></i>
