@@ -6,7 +6,7 @@ $info = [
 if (isLogin() == false) {
     header('Location: ?module=auth&action=login');
 }
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 layouts('header', $info);
 
@@ -26,7 +26,7 @@ if (isPost()) {
         $data = [
             'CHUDETB' => $_POST['title'],
             'NOIDUNGTB' => $_POST['content'],
-            'CREATE_AT' => date("Y-m-d")
+            'CREATE_AT' => date("Y-m-d H:i:s")
         ];
         $insertStatus = insert('thongbao', $data);
         if ($insertStatus) {
@@ -45,7 +45,7 @@ $smg_data = getFlashData('smg_type');
 
 
 
-$listTB = getRow('select * from thongbao');
+$listTB = getRow('select * from thongbao order by CREATE_AT desc');
 ?>
 
 
@@ -65,7 +65,7 @@ $listTB = getRow('select * from thongbao');
                     <div class="card " style="width: 15rem;">
                         <h5 class="card-header text-bg-primary"> <?php echo $tb['CHUDETB'] ?> </h5>
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo date("d-m-Y", strtotime($tb['CREATE_AT'])) ?></h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo date("d-m-Y H:i", strtotime($tb['CREATE_AT'])) ?></h6>
                             <p class="card-text"> <?php echo $tb['NOIDUNGTB'] ?></p>
                             <a href="?module=thongbao&action=update&id=<?php echo $tb['MATB']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
                             <a href="?module=thongbao&action=delete&id=<?php echo $tb['MATB']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><i class="fa-solid fa-trash-can" style="color: #000000;"></i></a>

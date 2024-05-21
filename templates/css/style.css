@@ -104,7 +104,7 @@
     width: 78vw;
     height: 87vh;
     background-color: white;
-    margin-left: 310px;
+    margin-left: 295px;
     margin-top: 15px;
     border-radius: 20px; 
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -132,7 +132,7 @@
     width: 78vw;
     height: 6vh;
     background-color: rgb(255, 255, 255);
-    margin-left: 310px;
+    margin-left: 295px;
     margin-top: 640px;
     border-radius: 20px; 
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -237,4 +237,12 @@ input[type="date"] {
     max-height: 470px;
     overflow-y: auto; 
     overflow-x: hidden;
+}
+.my-table-lh{
+    max-height: 345px;
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+.lichhop-form{
+    height: 73px;
 }
