@@ -5,6 +5,13 @@ $info = [
 ];
 layouts('headerEmp', $info);
 $thisID = getSession('id');
+
+$userQuery = getRow("select * from nhanvien where MANV = $thisID");
+if ($userQuery['0']['PHONGBAN'] == 'Nhân sự') {
+    layouts('headerNS', $info);
+} else {
+    layouts('headerEmp', $info);
+}
 $param[':MANV'] = $thisID;
 $oldData = oneRow('select * from nhanvien where MANV = :MANV', $param);
 if (isPost()) {

@@ -8,7 +8,13 @@ if (isLogin() == false) {
 }
 
 
-layouts('headerEmp', $info);
+$thisId = getSession('id');
+$userQuery = getRow("select * from nhanvien where MANV = $thisId");
+if ($userQuery['0']['PHONGBAN'] == 'Nhân sự') {
+    layouts('headerNS', $info);
+} else {
+    layouts('headerEmp', $info);
+}
 
 if (isPost()) {
     $isError = false;

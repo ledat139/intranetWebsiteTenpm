@@ -96,7 +96,9 @@ $listYC = getRow("select * from yeucau WHERE MANV = $thisID order by CREATE_AT d
                                 <tr class="my-tr">
                                     <td><?php echo $YC['CHUDEYC'] ?></td>
                                     <td><?php echo $YC['NOIDUNGYC'] ?></td>
-                                    <td><?php echo $YC['TRANGTHAI'] ?></td>
+                                    <td><?php if ($YC['TRANGTHAI'] == 0)
+                                            echo '<span class="btn-danger btn">Chưa phê duyệt</span>';
+                                        else echo '<span class="btn-success btn">Đã phê duyệt</span>' ?></td>
                                     <td><a href="?module=yeucau&action=deleteNV&id=<?php echo $YC['MAYC']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><i class="fa-solid fa-trash-can" style="color: #000000;"></i></a></td>
                                 </tr>
                         <?php

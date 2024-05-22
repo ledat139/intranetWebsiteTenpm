@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="templates/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -23,31 +24,31 @@
         <hr>
         <ul class=" nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="?module=home&action=dashboard" class=" nav-link ">
+                <a href="?module=home&action=nhanSuDashBoard" class=" nav-link ">
                     <i class="fa-solid fa-house" style="color: #5D5D5D;"></i>
                     Trang chủ
                 </a>
             </li>
             <li>
-                <a href="?module=thongbao&action=list" class="nav-link">
+                <a href="?module=thongbao&action=listEmp" class="nav-link">
                     <i class="fa-solid fa-bell" style="color: #5D5D5D;"></i>
                     Thông báo
                 </a>
             </li>
             <li>
-                <a href="?module=nhanvien&action=list" class="nav-link">
+                <a href="?module=nhanvien&action=info" class="nav-link">
                     <i class="fa-solid fa-user-tie" style="color: #5D5D5D;"></i>
-                    Nhân viên
+                    Hồ sơ
                 </a>
             </li>
             <li>
-                <a href="?module=yeucau&action=yeucauQL" class="nav-link">
+                <a href="?module=yeucau&action=yeucauNS" class="nav-link">
                     <i class="fa-solid fa-hand" style="color: #5D5D5D;"></i>
                     Yêu cầu
                 </a>
             </li>
             <li>
-                <a href="?module=lichhop&action=lichhop" class="nav-link">
+                <a href="?module=lichhop&action=lichhopEmp" class="nav-link">
                     <i class="fa-solid fa-building" style="color: #5d5d5d;"></i>
                     Phòng họp
                 </a>
