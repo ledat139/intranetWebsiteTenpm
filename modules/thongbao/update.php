@@ -10,7 +10,7 @@ if (isLogin() == false) {
 $param[':MATB'] = $_GET['id'];
 $oldData = oneRow('select * from thongbao where MATB = :MATB', $param);
 if (empty($oldData)) {
-    header('Location: ?module=nhanvien&action=list');
+    header('Location: ?module=thongbao&action=list');
 }
 layouts('header', $info);
 
@@ -59,25 +59,46 @@ $listTB = getRow('select * from thongbao');
 
 
 <div class="my-content">
-    <div class="my-tb-body fixed-top p-3">
-        <div class="d-flex justify-content-between align-items-center mt-1">
-            <h3 class="mt-1">Quản lý thông báo</h3>
-            <!-- <a href="?module=nhanvien&action=add" class="btn btn-success my-btn1">
-                <i class="fa-solid fa-user-plus"></i>
-                Thêm thông báo
-            </a> -->
+    <div class="my-tb-body1 fixed-top p-3">
+        <div class=" mt-1">
+            <h3 class="mt-1">Thông báo</h3>
+        </div>
+        <div class="col-12 mt-4">
+            <?php
+            $currentDate = date("m-d");
+            $nvList = getRow('select * from nhanvien');
+            foreach ($nvList as $nv) {
+                $userBirthday = $nv['NGAYSINH'];
+                $userBirthdayObj = new DateTime($userBirthday);
+                $currentDate = new DateTime();
+                if ($userBirthdayObj->format("m-d") == $currentDate->format("m-d")) : ?>
+                    <div class="d-flex mt-3">
+                        <img src="templates/img/birthday.png" alt="" style="width:24px; height:24px">
+                        <p class="mx-2 fw-semibold">Hôm nay là sinh nhật của </p>
+                        <p class="text-danger fw-semibold"><?php echo $nv['HOTEN'] ?></p>
+                        <p class="mx-2 fw-semibold">,nhân viên phòng</p>
+                        <p class="text-danger fw-semibold"><?php echo $nv['PHONGBAN'] ?></p>
+                        <div class="img-table1" style="margin-left: auto"><img src="<?php echo $nv['FILEPATH'] ?>" alt="" class="profile-table1"></div>
+                    </div>
+            <?php endif;
+            }
+            ?>
         </div>
 
-        <div class="overflow-auto mt-4 my-tb-content">
+
+    </div>
+
+    <div class="my-tb-body2 fixed-top p-3">
+        <div class="overflow-auto my-tb-content">
             <div class="d-flex flex-wrap gap-2">
                 <?php foreach ($listTB as $tb) : ?>
                     <div class="card " style="width: 15rem;">
-                        <h5 class="card-header text-bg-primary"> <?php echo $tb['CHUDETB'] ?> </h5>
+                        <h5 class="card-header text-bg-dark"> <?php echo $tb['CHUDETB'] ?> </h5>
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo date("d-m-Y", strtotime($tb['CREATE_AT'])) ?></h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo date("d-m-Y H:i", strtotime($tb['CREATE_AT'])) ?></h6>
                             <p class="card-text"> <?php echo $tb['NOIDUNGTB'] ?></p>
-                            <a href="?module=thongbao&action=update&id=<?php echo $tb['MATB']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
-                            <a href="" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><i class="fa-solid fa-trash-can" style="color: #000000;"></i></a>
+                            <a href="?module=thongbao&action=update&id=<?php echo $tb['MATB']; ?>" class="btn btn-dark"><i class="fa-solid fa-pen-to-square" style="color: #FFF;"></i></a>
+                            <a href="?module=thongbao&action=delete&id=<?php echo $tb['MATB']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><i class="fa-solid fa-trash-can" style="color: #000000;"></i></a>
                         </div>
                     </div>
                 <?php endforeach; ?>
